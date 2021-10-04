@@ -1,0 +1,209 @@
+﻿@using EntityLayer.Concrete
+@model List<Blog>
+ 
+    @{ ViewData["Title"] = "Index";
+        Layout = "~/Views/Shared/UserLayout.cshtml";
+    }
+    <section class="main-content-w3layouts-agileits">
+        <div class="container">
+            <div class="row inner-sec">
+                <!--left-->
+                <div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">
+                    @*sol kartımız*@
+                    @foreach (var item in Model)
+                    {
+                        <article class="blog-grid-top">
+
+                            <div class="b-grid-top">
+                                <div class="blog_info_left_grid">
+                                    <a href="/Blog/BlogReadAll/@item.BlogID">
+                                        <img src="@item.BlogThumbnailImage" class="img-fluid" alt="">
+                                    </a>
+                                </div>
+                                <div class="blog-info-middle">
+                                    <ul>
+                                        <li>
+                                            <a >
+                                                <i class="far fa-calendar-alt"></i> @(((DateTime)item.BlogCreateDate).ToString("dd-MMM-yyyy"))
+
+                                            </a>
+                                        </li>
+                                        <li class="mx-2">
+                                            <a href="#">
+                                                <i class="far fa-thumbs-up"></i> @item.Category.CategoryName
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="far fa-comment"> @item.Category.CategoryID</i>
+</a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </div>
+
+
+                            <h3>
+                                <a href="single.html">@item.BlogTitle</a>
+                            </h3>
+                            <p>
+                               @item.BlogContent.Substring(0,200)...
+                            </p>
+                            <a href="/Blog/BlogReadAll/@item.BlogID" class="btn btn-primary read-m">Devamını Oku</a>
+                        </article>
+                    }
+
+                    @*geçiş sekmesi ---PASİFDURUMDA---*@
+                    @*<nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-left">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1">Öncesi</a>
+                            </li>
+                             @foreach (var item in Model)
+                             {
+
+                                <li class="page-item">
+                                    <a class="page-link" href="#">1</a>
+                                </li>
+                              }
+                                <li class="page-item">
+                                    <a class="page-link" href="#">İleri</a>
+                                </li>
+                            </ul>
+                    </nav>*@
+                </div>
+                <!--//left-->
+                <!--right-->
+                <aside class="col-lg-4 agileits-w3ls-right-blog-con text-left">
+                    <div class="right-blog-info text-left">
+                        <div class="tech-btm">
+                            <img src="images/banner1.jpg" class="img-fluid" alt="">
+                        </div>
+                        <div class="tech-btm">
+                            <h4>Katagoriler</h4>
+                            <ul class="list-group single">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Cras justo odio
+                                    <span class="badge badge-primary badge-pill">14</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Dapibus ac facilisis in
+                                    <span class="badge badge-primary badge-pill">2</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Morbi leo risus
+                                    <span class="badge badge-primary badge-pill">1</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="tech-btm">
+                            <h4>Haftanın en çok okunan haberleri</h4>
+
+                            <div class="blog-grids row mb-3">
+                                <div class="col-md-5 blog-grid-left">
+                                    <a href="single.html">
+                                        <img src="images/1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                </div>
+                                <div class="col-md-7 blog-grid-right">
+
+                                    <h5>
+                                        <a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
+                                    </h5>
+                                    <div class="sub-meta">
+                                        <span>
+                                            <i class="far fa-clock"></i> 20 Jan, 2018
+                                        </span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="blog-grids row mb-3">
+                                <div class="col-md-5 blog-grid-left">
+                                    <a href="single.html">
+                                        <img src="images/6.jpg" class="img-fluid" alt="">
+                                    </a>
+                                </div>
+                                <div class="col-md-7 blog-grid-right">
+                                    <h5>
+                                        <a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
+                                    </h5>
+                                    <div class="sub-meta">
+                                        <span>
+                                            <i class="far fa-clock"></i> 20 Feb, 2018
+                                        </span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                
+    
+                        
+                        <div class="tech-btm">
+                            <h4>Yakın zamanda Gönderilenler</h4>
+
+                            <div class="blog-grids row mb-3 text-left">
+                                <div class="col-md-5 blog-grid-left">
+                                    <a href="single.html">
+                                        <img src="images/1.jpg" class="img-fluid" alt="">
+                                    </a>
+                                </div>
+                                <div class="col-md-7 blog-grid-right">
+
+                                    <h5>
+                                        <a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
+                                    </h5>
+                                    <div class="sub-meta">
+                                        <span>
+                                            <i class="far fa-clock"></i> 20 Jan, 2018
+                                        </span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="blog-grids row mb-3 text-left">
+                                <div class="col-md-5 blog-grid-left">
+                                    <a href="single.html">
+                                        <img src="images/5.jpg" class="img-fluid" alt="">
+                                    </a>
+                                </div>
+                                <div class="col-md-7 blog-grid-right">
+
+                                    <h5>
+                                        <a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
+                                    </h5>
+                                    <div class="sub-meta">
+                                        <span>
+                                            <i class="far fa-clock"></i> 20 Jan, 2018
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                            <div class="blog-grids row mb-3 text-left">
+                                <div class="col-md-5 blog-grid-left">
+                                    <a href="single.html">
+                                        <img src="images/3.jpg" class="img-fluid" alt="">
+                                    </a>
+                                </div>
+                                <div class="col-md-7 blog-grid-right">
+                                    <h5>
+                                        <a href="single.html">Pellentesque dui, non felis. Maecenas male non felis </a>
+                                    </h5>
+                                    <div class="sub-meta">
+                                        <span>
+                                            <i class="far fa-clock"></i> 20 Feb, 2018
+                                        </span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+                <!--//right-->
+            </div>
+        </div>
+    </section>
